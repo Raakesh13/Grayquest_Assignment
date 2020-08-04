@@ -9,4 +9,4 @@ Clone the project and open the directory in your command prompt or terminal and 
 
 Run command **pipenv shell** to activate the virtual environment.
 
-Run command **python manage.py runserver** or **python3 manage.py runserver**(if python 2 is also install on the computer) to start the server.
+Run command **python manage.py runserver** or **python3 manage.py runserver**(if python 2 is also install on the computer) to start the server. This must start the local server(https://localhost:8000)
