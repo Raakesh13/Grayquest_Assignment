@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <div>
+      <h1>
+        You are already logged in.
+      </h1>
+    </div>
+    {% else %}
+    
+    <form
+      name="loginform"
+      action={% url 'login' %}
+      method="POST"
+    >
+      {% csrf_token %}
+        <div>{{ form.username|as_crispy_field }}</div>
+        <div>{{ form.password|as_crispy_field }}</div>
+        <input type="submit" value="SignIn">
+    </form>
+    {% endif %}
+        {% endblock content %}

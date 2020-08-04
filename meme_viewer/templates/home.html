@@ -1,0 +1,50 @@
+{% extends 'base.html' %} {% block content %} {% if not cookie_status %}
+<script>
+  var set_cookie_status;
+  var r = confirm(
+    "This website stores cookies for session information. Please accept if you agree. On decline you will be redirected to the login page. Thanks!"
+  );
+  if (r == false) {
+    // set_cookie_status = "Yes";
+    location.replace("{% url 'logout' %}");
+
+    // set_cookie_status: set_cookie_status,
+  } else {
+    $.post("{% url 'update_cookie_status' %}", {
+      csrfmiddlewaretoken: "{{ csrf_token}}",
+    });
+  }
+  console.log(set_cookie_status);
+</script>
+{% endif %}
+<div class="memes">
+  {% for meme in memeList %}
+  <div class="meme">
+    <img
+      src="{{meme.url}}"
+      alt="Image"
+      width="{{meme.width}}"
+      height="{{meme.height}}"
+    />
+  </div>
+
+  {% endfor%}
+</div>
+<div
+  id="sessioninfo"
+  style="
+    width: 400px;
+    height: auto;
+    position: fixed;
+    bottom: 0px;
+    left: 35%;
+    border: 1px solid black;
+    text-align: center;
+  "
+>
+  <!-- {% for i in sessioninfo %} {{ i }} {% endfor %} -->
+  <p>username: {{sessioninfo.username}}</p>
+  <p>session_expiry_age: {{sessioninfo.session_expiry_age}}</p>
+</div>
+
+{% endblock content %}

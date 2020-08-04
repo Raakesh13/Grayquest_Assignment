@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href={% static 'styles.css' %} />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <title>
+      Meme Viewer
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#sessioninfo").fadeOut(6000);
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="Navbar">
+      <span class="Logo"
+        ><em><a href="{% url 'home' %}">Meme Viewer</a></em></span
+      >
+      {% if user.is_authenticated %}
+      <span>
+        <form class="logout" action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <button class type="submit">Logout</button>
+        </form>
+      </span>
+      {% else %}
+      <span><a class="signin" href="{% url 'login' %}">Sign In</a></span>
+      <span><a class="signup" href="{% url 'signup' %}">Sign Up</a></span>
+      {% endif %}
+    </div>
+    <div class="cls-1">
+      {% block content %} {% endblock %}
+    </div>
+  </body>
+</html>

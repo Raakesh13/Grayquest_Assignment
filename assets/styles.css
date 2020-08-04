@@ -1,0 +1,71 @@
+body {
+  margin: 0px;
+  display: block;
+}
+.cls-1 {
+  padding: 100px;
+  text-align: center;
+}
+
+.Navbar {
+  margin: 0px;
+  padding: 0px 10px 0px 10px;
+  height: 50px;
+  background-color: teal;
+}
+
+.Navbar a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.logout {
+  margin: 0px;
+  padding: 0px;
+}
+
+.logout button {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-size: medium;
+  box-sizing: unset;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: teal;
+  border: none;
+  cursor: pointer;
+}
+
+.Logo a {
+  float: left;
+  /* padding-top: 15px; */
+  text-align: center;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.memes {
+  padding: 0px;
+  margin: 0px;
+}
+
+.loginform {
+  height: 300px;
+  width: 300px;
+}
+
+#sessioninfo {
+  background-color: cadetblue;
+  border-radius: 5px;
+}
