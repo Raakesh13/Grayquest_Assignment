@@ -1,5 +1,4 @@
-from django.shortcuts import render, redirect, reverse
-from meme_viewer.signinform import LoginForm
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout
 from .models import Cookies
