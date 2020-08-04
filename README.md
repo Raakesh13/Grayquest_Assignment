@@ -11,4 +11,4 @@ Run command **pipenv shell** to activate the virtual environment.
 
 Run command **python manage.py runserver** or **python3 manage.py runserver**(if python 2 is also install on the computer) to start the server. This must start the local server(https://localhost:8000)
 
-User admin credentials: username: User1, password: India@123
+User admin credentials: username: rakesh, password: India@123
