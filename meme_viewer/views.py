@@ -9,8 +9,6 @@ import requests
 from django.contrib.auth.decorators import login_required
 
 
-# Create your views here.
-
 def home(request):
     if len(request.session.items()) == 0:
         return redirect('login')
@@ -29,7 +27,7 @@ def home(request):
         memeListJSON = req.json()
         memeList = memeListJSON['data']['memes'][:5]
 
-    except requests.exceptions.RequestException as e:  # This is the correct syntax
+    except requests.exceptions.RequestException as e:
         return HttpResponse('Check internet connection', status=500)
 
     return render(request, 'home.html', {'sessioninfo': {'username': request.session['username'], 'session_expiry_age': request.session.get_expiry_age()}, 'cookie_status': cookie_status.setCookies, 'memeList': memeList})
@@ -41,11 +39,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            # context['username'] = 'Rakesh'
             request.session['username'] = str(user)
-            # print(type(user))
-            # print(request.session.keys())
-            # print(request.session.get_session_cookie_age())
             return redirect('home')
     else:
         form = AuthenticationForm()
@@ -53,11 +47,8 @@ def login_view(request):
 
 
 def logout_view(request):
-    # print(request.method)
-    # if request.method == 'POST':
     logout(request)
     return redirect('login')
-    # return HttpResponse('<h1>Logged out</h1>')
 
 
 def signup_view(request):
@@ -66,11 +57,7 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            # context['username'] = 'Rakesh'
             request.session['username'] = str(user)
-            # print(type(user))
-            # print(request.session.keys())
-            # print(request.session.get_session_cookie_age())
             return redirect('home')
     else:
         form = UserCreationForm()

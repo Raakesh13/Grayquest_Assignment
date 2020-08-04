@@ -5,10 +5,7 @@
     "This website stores cookies for session information. Please accept if you agree. On decline you will be redirected to the login page. Thanks!"
   );
   if (r == false) {
-    // set_cookie_status = "Yes";
     location.replace("{% url 'logout' %}");
-
-    // set_cookie_status: set_cookie_status,
   } else {
     $.post("{% url 'update_cookie_status' %}", {
       csrfmiddlewaretoken: "{{ csrf_token}}",
@@ -42,7 +39,6 @@
     text-align: center;
   "
 >
-  <!-- {% for i in sessioninfo %} {{ i }} {% endfor %} -->
   <p>username: {{sessioninfo.username}}</p>
   <p>session_expiry_age: {{sessioninfo.session_expiry_age}}</p>
 </div>
